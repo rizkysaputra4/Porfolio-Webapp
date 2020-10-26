@@ -1,0 +1,43 @@
+.nav-bar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: lightskyblue;
+}
+
+.NavList {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 14px;
+  text-decoration: none !important;
+  float: left;
+  font-weight: bold;
+}
+
+.NavList:hover {
+  background-color: whitesmoke;
+  color: black;
+  border-radius: 10px;
+}
+
+.nav-left-box {
+  float: left;
+}
+
+.nav-right-box {
+  float: right;
+}
+
+#home-btn {
+  border-radius: 10px;
+  padding-left: 20px;
+  padding-right: 30px;
+}
+
+h1,
+p {
+  width: auto;
+  text-align: center;
+}
