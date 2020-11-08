@@ -8,7 +8,7 @@ import { gsap } from "gsap";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const server = "http://localhost:443/api";
+const server = "https://rizkyport.herokuapp.com/api";
 
 export default class Home extends Component {
   constructor(props) {
