@@ -13,6 +13,7 @@ import Profile from "./components/Profile";
 import MyPost from "./components/MyPost";
 import Home from "./components/Home";
 import Axios from "axios";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   Axios.defaults.withCredentials = true;
@@ -21,9 +22,7 @@ function App() {
     <Router>
       <div>
         <Navbar />
-        <br></br>
-        <br></br>
-        <br></br>
+
         <Route path="/" exact component={Home} />
         <Route path="/wall" component={Wall} />
         <Route path="/mypost" component={MyPost} />

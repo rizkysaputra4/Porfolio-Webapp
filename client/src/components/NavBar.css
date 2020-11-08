@@ -3,7 +3,10 @@
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: lightskyblue;
+}
+
+#navbar {
+  background-color: #3b413c !important;
 }
 
 .NavList {

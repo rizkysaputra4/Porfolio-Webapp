@@ -7,7 +7,7 @@ export default class NavBar extends Component {
   render() {
     return (
       <div className="nav-bar">
-        <nav className="navbar fixed-top navbar-light bg-primary text-white">
+        <nav className="navbar navbar-light bg-white text-dark" id="navbar">
           <div className="nav-left-box" id="home-btn">
             <Link to="/" className="NavList">
               Home
@@ -20,10 +20,6 @@ export default class NavBar extends Component {
 
             <Link to="/explore" className="NavList">
               Explore
-            </Link>
-
-            <Link to="/profile" className="NavList">
-              Profile
             </Link>
           </div>
         </nav>

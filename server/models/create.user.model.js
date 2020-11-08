@@ -21,7 +21,7 @@ const userSchema = new createUser({
     required: true,
   },
   createdDate: {
-    type: Date,
+    type: String,
     required: true,
   },
   postId: [

@@ -30,14 +30,14 @@ function modifyPostAuth(req, res, next) {
   }
   if (userID.includes(defaultID)) {
     res.json({ error: "Guest User cannot modify the post" });
-  }
-
-  try {
-    const verified = jwt.verify(token, process.env.SECRET_TOKEN);
-    req.user = verified;
-    next();
-  } catch (err) {
-    console.log(err);
+  } else {
+    try {
+      const verified = jwt.verify(token, process.env.SECRET_TOKEN);
+      req.user = verified;
+      next();
+    } catch (err) {
+      console.log(err);
+    }
   }
 }
 

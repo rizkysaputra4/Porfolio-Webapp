@@ -27,14 +27,13 @@ body {
 }
 
 .right-box {
-  width: auto;
   background-color: white;
   width: 15%;
 }
 
 .content-box {
   width: 70%;
-  height: 560px;
+  height: auto;
 }
 
 .add-post-box {
@@ -73,6 +72,11 @@ svg:hover {
   fill: rgb(9, 64, 153);
 }
 
+#Login-btn,
+#Logout-btn {
+  fill: aliceblue !important;
+}
+
 #reply-upvote {
   margin: 50%;
 }
@@ -87,7 +91,8 @@ svg:hover {
   border-radius: 4%;
 }
 
-#date {
+#date,
+#login-status {
   color: rgb(189, 189, 189);
   font-size: smaller;
 }
@@ -96,6 +101,10 @@ svg:hover {
   margin-bottom: 0 !important;
   padding-bottom: 0 !important;
   border-bottom: 0 !important;
+}
+
+#post-cont:hover {
+  background-color: rgb(245, 248, 255);
 }
 
 .comment-box {
@@ -110,4 +119,55 @@ svg:hover {
   font-size: medium;
   font-weight: 500;
   color: rgb(87, 134, 255);
+}
+
+#login-error {
+  max-width: 70% !important;
+  margin: 0;
+}
+
+@media (max-width: 720px) {
+  .container-box {
+    flex-direction: column-reverse;
+  }
+
+  #left-box {
+    display: none;
+  }
+
+  .right-box {
+    height: auto;
+    width: 100%;
+    flex-direction: row-reverse;
+    margin-bottom: 0;
+    height: auto;
+  }
+
+  .content-box {
+    width: 100%;
+  }
+
+  #post-box {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  #replygroup {
+    display: inline-flexbox !important;
+    flex-direction: row !important;
+  }
+
+  img {
+    width: 40px;
+    height: 40px;
+  }
+
+  #upvote-downvote,
+  #comment-button {
+    width: auto !important;
+    flex-direction: row !important;
+    margin: auto !important;
+    padding: 0 !important;
+  }
 }

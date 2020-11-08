@@ -7,6 +7,7 @@ export default class Explore extends Component {
     return (
       <div>
         <p>this is Explore</p>
+        <div></div>
       </div>
     );
   }

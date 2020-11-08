@@ -1,40 +1,43 @@
-//const app = require("express").Router();
 const express = require("express");
-const { getNodeText } = require("@testing-library/react");
 const e = require("express");
 const post = require("../models/post.book.model");
-const { db, remove } = require("../models/post.book.model");
 let Post = require("../models/post.book.model");
 const auth = require("./verify-token");
-/* import verify from "./verify-token.js"; */
+const today = require("../models/date");
 const app = express.Router({ mergeParams: true });
 
 ///////////GET ALL POST///////////////
-app.get("/get", auth.verify, (req, res) => {
-  Post.find()
-    .sort({ lastEdited: -1 })
-    .then((post) => {
-      res.json(post);
-    })
-    .catch((err) => res.status(404).json(err));
+app.post("/get", (req, res) => {
+  const options = {
+    page: req.body.page,
+    limit: 10,
+    sort: { date: -1 },
+    collation: {
+      locale: "en",
+    },
+  };
+
+  post.paginate({}, options, (err, result) => {
+    res.json(result);
+  });
 });
 
 //////////GET POST BY ID///////////////
 app.get("/get/:id", (req, res) => {
-  console.log(req.cookies.userID);
   Post.findById(req.params.id)
     .then((post) => res.json(post))
     .catch((err) => res.status(404).json(err));
 });
 
-///////////ADD POST////////////////////
+///////////CREATE POST////////////////////
 app.post("/addPost", auth.verify, (req, res) => {
   const userName = req.cookies.userName;
   const post = req.body.post;
   const company = req.body.company;
   const position = req.body.position;
-  const dateCreated = Date.now(req.body.dateCreated);
+  const dateCreated = today;
   const lastEdited = dateCreated;
+  const vote = 0;
 
   const newPost = new Post({
     userName,
@@ -43,6 +46,7 @@ app.post("/addPost", auth.verify, (req, res) => {
     position,
     dateCreated,
     lastEdited,
+    vote,
   });
 
   newPost
@@ -55,7 +59,7 @@ app.post("/addPost", auth.verify, (req, res) => {
 app.post("/replyPost/:id", (req, res) => {
   const userName = req.cookies.userName;
   const replyText = req.body.replyText;
-  const postedDate = Date.now(req.body.postedDate);
+  const postedDate = today;
   const lastEdited = postedDate;
 
   const reply = {
@@ -69,7 +73,7 @@ app.post("/replyPost/:id", (req, res) => {
     post.reply.push(reply);
     post
       .save()
-      .then((thePost) => res.json(thePost))
+      .then((thePost) => res.json(thePost.reply))
       .catch((err) => console.log(err));
   });
 });
@@ -81,15 +85,13 @@ app.post("/updatePost/:id", auth.modifyPostAuth, (req, res) => {
     if (clientUsername !== post.userName) {
       res.json({ error: "You cannot modify someone else post" });
     } else {
-      post.name = req.body.name;
       post.post = req.body.post;
-      post.company = req.body.company;
-      post.position = req.body.position;
+
       post.lastEdited = Date.now(req.body.lastEdited);
 
       post
         .save()
-        .then((postEdited) => res.json(postEdited))
+        .then((postEdited) => res.json("Post has been edited"))
         .catch((err) => res.json(403).json(err));
     }
   });
@@ -105,15 +107,19 @@ app.get("/getreply/:id", (req, res) => {
 });
 
 /////////////////DELETE POST//////////////////////
-app.delete("/deletepost/:id", auth.modifyPostAuth, (req, res, next) => {
+app.delete("/deletepost/:id", auth.modifyPostAuth, (req, res) => {
   const clientUsername = req.cookies.userName;
 
   Post.findOne({ _id: req.params.id }, (err, result) => {
-    if (clientUsername !== result.userName) {
-      res.json({ error: "You cannot delete someone else post" });
+    if (!result) {
+      res.json({ error: "cannot find post ID" });
     } else {
-      result.remove().catch((err) => res.json({ err }));
-      res.json({ re: `this post ${req.params.id} has been deleted` });
+      if (clientUsername !== result.userName) {
+        res.json({ error: "You cannot delete someone else post" });
+      } else {
+        result.remove();
+        res.json({ re: `this post has been deleted` });
+      }
     }
   });
 });
@@ -131,5 +137,32 @@ app.get(
       .catch((err) => console.log(err));
   }
 );
+
+/////////////////VOTE//////////////////////
+app.post("/upvotepost/:id", (req, res) => {
+  Post.findByIdAndUpdate(req.params.id)
+    .then((post) => {
+      const voteTotal = post.vote + 1;
+      post.vote = voteTotal;
+      post
+        .save()
+        .then((post) => res.json(post.vote))
+        .catch((err) => console.log(err));
+    })
+    .catch((err) => console.log(err));
+});
+
+app.post("/downvotepost/:id", (req, res) => {
+  Post.findByIdAndUpdate(req.params.id)
+    .then((post) => {
+      const voteTotal = post.vote - 1;
+      post.vote = voteTotal;
+      post
+        .save()
+        .then((post) => res.json(post.vote))
+        .catch((err) => console.log(err));
+    })
+    .catch((err) => console.log(err));
+});
 
 module.exports = app;

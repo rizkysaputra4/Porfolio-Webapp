@@ -34,4 +34,4 @@ app.use("/api", guestRoute);
 /* app.use("/api", myPost); */
 app.use("/api", auth);
 
-app.use("/", express.static("./build"));
+app.use("/", express.static("./client/build/"));

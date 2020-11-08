@@ -1,0 +1,190 @@
+body,
+pre {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+#hello {
+  font-size: 100px;
+  text-align: center;
+  font-weight: bolder;
+}
+
+#name {
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 80px;
+  display: flex;
+}
+
+#Welcome-container {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #3b413c;
+  color: white;
+}
+
+#welcome-content {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+#and-container {
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(199, 199, 199);
+  color: white;
+}
+
+#and {
+  font-size: 50px;
+  font-weight: bold;
+}
+
+#container {
+  margin: 0;
+  background-color: rgb(199, 199, 199);
+}
+
+#profile-container {
+  height: 750px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.profile-row {
+  flex: 1 1 0px;
+  color: rgb(199, 199, 199);
+}
+
+#I {
+  font-size: 520px;
+  align-items: flex-end;
+}
+
+#profile-list {
+  font-size: 20px;
+  color: white;
+}
+
+#profile-list li {
+  border-radius: 20%;
+  padding: 8px;
+  list-style-type: none;
+  border: 1px solid;
+  border-color: #b0b0b0;
+  border-radius: 10%;
+  margin: 10px;
+  padding: 8px;
+}
+
+#skill-box {
+  height: 800px;
+  padding-top: 150px;
+  background-color: #f4faff;
+}
+
+#my-skills {
+  font-size: 40px;
+  font-weight: bold;
+  height: 70px;
+}
+
+#skill-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: top;
+  font-size: 20px;
+}
+
+.skill-name {
+  list-style-type: none;
+  border: 1px solid;
+  border-color: #b0b0b0;
+  border-radius: 10%;
+  margin: 10px;
+  padding: 8px;
+  margin-bottom: 20px;
+}
+
+#hope {
+  height: 400px;
+  padding-top: 170px;
+  background-color: white;
+  color: white;
+}
+
+#hope h3 {
+  font-size: 50px;
+  font-weight: bold;
+}
+
+h6 {
+  font-size: 20px;
+}
+
+#contact-container {
+  height: max-content;
+  background-color: white;
+  margin: 0;
+  padding: 0;
+  color: white;
+  height: 400px;
+  padding-top: 80px;
+}
+
+#contacts {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+}
+
+#contacts li {
+  list-style-type: none;
+  border: 3px solid;
+  border-color: white;
+  border-radius: 10%;
+  margin: 10px;
+  padding: 8px;
+}
+
+#cv {
+  font-size: 20px;
+}
+
+@media (max-width: 720px) {
+  #profile-container,
+  #contacts {
+    width: 95%;
+  }
+
+  #welcome-content {
+    margin: 95%;
+  }
+
+  #name {
+    display: block;
+  }
+
+  #mynameis {
+    align-self: center;
+    align-content: center;
+    margin: auto;
+    padding: 0px 25px 0px 20px;
+    margin-top: 10px;
+  }
+
+  #profile-list li {
+    font-size: large;
+  }
+}
