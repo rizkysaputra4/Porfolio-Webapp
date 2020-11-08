@@ -9,8 +9,7 @@ import "axios";
 import Navbar from "./components/NavBar";
 import Wall from "./components/Wall";
 import Explore from "./components/Explore";
-import Profile from "./components/Profile";
-import MyPost from "./components/MyPost";
+
 import Home from "./components/Home";
 import Axios from "axios";
 import "react-toastify/dist/ReactToastify.css";
@@ -25,9 +24,8 @@ function App() {
 
         <Route path="/" exact component={Home} />
         <Route path="/wall" component={Wall} />
-        <Route path="/mypost" component={MyPost} />
+
         <Route path="/explore" component={Explore} />
-        <Route path="/profile" component={Profile} />
       </div>
     </Router>
   );
