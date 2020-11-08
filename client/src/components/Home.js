@@ -8,7 +8,7 @@ import { gsap } from "gsap";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const server = "http://localhost:5000/api";
+const server = "http://localhost:443/api";
 
 export default class Home extends Component {
   constructor(props) {

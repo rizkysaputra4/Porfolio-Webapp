@@ -12,7 +12,7 @@ import { ToastContainer } from "react-toastify";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const server = "rizkyport.herokuapp.com/api";
+const server = "http://localhost:443/api";
 
 export default class Wall extends React.Component {
   constructor(props) {
