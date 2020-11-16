@@ -23,7 +23,7 @@ connection.once("open", () => {
   console.log("MongoDB connection established");
 });
 
-app.listen(port, "127.0.0.1");
+app.listen(port);
 
 const guestRoute = require("./server/route/post-book");
 /* const myPost = require("./server/route/my-post"); */
