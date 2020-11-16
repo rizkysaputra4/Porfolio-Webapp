@@ -4,7 +4,7 @@ import SearchMovie from "./Search-movie";
 import "./movie-details.css";
 import ReactLoading from "react-loading";
 
-const server = "http://rizkyport.herokuapp.com/api";
+const server = "https://rizkyport.herokuapp.com/api";
 
 export default class MovieDetails extends React.Component {
   constructor(props) {

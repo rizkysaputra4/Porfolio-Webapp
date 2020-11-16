@@ -5,7 +5,7 @@ import SearchMovie from "./Search-movie";
 import { Link } from "react-router-dom";
 import ReactLoading from "react-loading";
 
-const server = "http://rizkyport.herokuapp.com/api";
+const server = "https://rizkyport.herokuapp.com/api";
 export default class SearchPage extends React.Component {
   constructor(props) {
     super(props);
