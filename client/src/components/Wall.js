@@ -12,7 +12,7 @@ import { ToastContainer } from "react-toastify";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const server = "https://rizkyport.herokuapp.com/api";
+const server = "http://rizkyport.herokuapp.com/api";
 
 export default class Wall extends React.Component {
   constructor(props) {
@@ -177,6 +177,7 @@ export default class Wall extends React.Component {
   }
 
   getPostByPage(getPage) {
+    this.setState({ isLoading: true });
     const page = {
       page: getPage,
     };
@@ -191,6 +192,7 @@ export default class Wall extends React.Component {
         });
       })
       .catch((err) => console.log(err));
+    window.scrollTo(0, 0);
   }
 
   postPageButton() {
@@ -225,8 +227,16 @@ export default class Wall extends React.Component {
   isLoading() {
     if (this.state.isLoading) {
       return (
-        <div className="mt-5">
-          <ReactLoading type="spin" color="#1AC8DB" />
+        <div className="d-flex justify-content-center  mb-5">
+          <div className="mt-5">
+            <ReactLoading type="bars" color="#1AC8DB" />
+          </div>
+        </div>
+      );
+    } else {
+      return (
+        <div className="wall-post mt-5" id="wpost">
+          {this.postListDisp()}
         </div>
       );
     }
@@ -234,11 +244,11 @@ export default class Wall extends React.Component {
 
   render() {
     return (
-      <div className="container-box">
+      <div className="container-box mb-5">
         <div className="left-box" id="left-box">
           <p>ssfdd</p>
         </div>
-        <div className="border content-box">
+        <div className="border content-box" id="content-box">
           <ToastContainer
             position="top-center"
             autoClose={5000}
@@ -253,7 +263,7 @@ export default class Wall extends React.Component {
           <div className="empty-box"></div>
 
           <ul
-            className="nav nav-tabs justify-content-center"
+            className="nav nav-tabs justify-content-center row"
             id="myTab"
             role="tablist"
           >
@@ -270,7 +280,7 @@ export default class Wall extends React.Component {
                 Send Post
               </a>
             </li> */}
-            <li className="nav-item" role="presentation">
+            <li className="nav-item col" role="presentation" align="center">
               <a
                 className="nav-link active"
                 id="profile-tab"
@@ -283,7 +293,7 @@ export default class Wall extends React.Component {
                 Wall
               </a>
             </li>
-            <li className="nav-item" role="presentation">
+            <li className="nav-item col" role="presentation" align="center">
               <a
                 className="nav-link"
                 id="contact-tab"
@@ -310,9 +320,6 @@ export default class Wall extends React.Component {
               role="tabpanel"
               aria-labelledby="profile-tab"
             >
-              <div className="d-flex justify-content-center ">
-                {this.isLoading()}
-              </div>
               <div>
                 <SendPost
                   server={server}
@@ -321,9 +328,8 @@ export default class Wall extends React.Component {
                   myPostList={this.state.myPostList}
                 />
               </div>
-              <div className="wall-post mt-5" id="wpost">
-                {this.postListDisp()}
-              </div>
+              {this.isLoading()}
+
               <div className="d-flex justify-content-center mt-2">
                 <Pagination>
                   <Pagination.First

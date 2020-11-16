@@ -34,6 +34,7 @@ body {
 .content-box {
   width: 70%;
   height: auto;
+  min-height: 90vh;
 }
 
 .add-post-box {
@@ -43,6 +44,11 @@ body {
   border: 10px;
   width: 70%;
   margin-top: 20px;
+}
+
+#send-post:hover {
+  background-color: rgb(232, 242, 255);
+  cursor: pointer;
 }
 
 .form-group {
@@ -124,6 +130,10 @@ svg:hover {
 #login-error {
   max-width: 70% !important;
   margin: 0;
+}
+
+.full-screen {
+  height: 80vh !important;
 }
 
 @media (max-width: 720px) {

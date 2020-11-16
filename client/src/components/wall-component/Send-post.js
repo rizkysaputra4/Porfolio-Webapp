@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { Button, Collapse } from "react-bootstrap";
+/* import { Button, Collapse } from "react-bootstrap"; */
 
 export default class SendPost extends React.Component {
   constructor(props) {
@@ -110,11 +110,18 @@ export default class SendPost extends React.Component {
         </Collapse> */}
 
         <div id="accordion">
-          <div class="card">
-            <div class="card-header" id="headingThree">
-              <h5 class="mb-0 d-flex justify-content-center">
+          <div className="card">
+            <div
+              className="card-header collapsed"
+              id="send-post"
+              data-toggle="collapse"
+              data-target="#collapseThree"
+              aria-expanded="false"
+              aria-controls="collapseThree"
+            >
+              <h5 className="mb-0 d-flex justify-content-center">
                 <button
-                  class="btn btn-link collapsed"
+                  className="btn btn-link collapsed"
                   data-toggle="collapse"
                   data-target="#collapseThree"
                   aria-expanded="false"
@@ -126,11 +133,11 @@ export default class SendPost extends React.Component {
             </div>
             <div
               id="collapseThree"
-              class="collapse"
+              className="collapse"
               aria-labelledby="headingThree"
               data-parent="#accordion"
             >
-              <div class="card-body">{this.sendPost()}</div>
+              <div className="card-body">{this.sendPost()}</div>
             </div>
           </div>
         </div>

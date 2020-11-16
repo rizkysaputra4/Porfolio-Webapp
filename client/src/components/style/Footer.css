@@ -1,0 +1,17 @@
+#footer-container {
+  border-top: 1px solid #3b413c;
+  background-color: whitesmoke;
+  bottom: 0;
+}
+
+.footer-container svg {
+  fill: rgb(84, 89, 85);
+  align-self: center;
+}
+
+.footer-container svg:hover {
+  fill: black;
+}
+
+.contact-icon {
+}

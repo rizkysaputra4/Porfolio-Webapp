@@ -1,0 +1,47 @@
+hr {
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(255, 255, 255, 1) 27%
+  );
+  width: 100%;
+  margin-top: 0;
+  overflow: hidden;
+
+  border-width: 0.5vh;
+}
+
+.img-thumbnail {
+  height: 200px;
+  width: 200px;
+  background-color: #3b413c;
+}
+
+.bottom-left {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+  color: aliceblue;
+  font-weight: bold;
+}
+
+#movie-search {
+  display: flex;
+  align-items: center !important;
+}
+.img-thumbnail:hover {
+  background-color: whitesmoke;
+}
+.img-thumbnail:hover + .bottom-left {
+  color: black;
+}
+
+#search-card:hover {
+  background-color: rgb(232, 242, 255);
+  text-decoration: none;
+}
+
+#movie-link:hover {
+  text-decoration: none;
+}

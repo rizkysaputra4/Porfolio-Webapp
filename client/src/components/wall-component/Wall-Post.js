@@ -1,4 +1,3 @@
-import Axios from "axios";
 import React from "react";
 import EditPost from "./Edit-post-page";
 import svg from "../svg-sources";
@@ -169,7 +168,7 @@ export default class Post extends React.Component {
       <div className="post-box">
         <br></br>
         <div className="card w-75 mx-auto" id="post-box">
-          <div className="card-body mb-1 pb-1 border-bottom" id="post-cont">
+          <div className="card-body mb-0 pb-1 border-bottom" id="post-cont">
             <div className="media" id="post-box">
               <img
                 src={this.props.picture()}
