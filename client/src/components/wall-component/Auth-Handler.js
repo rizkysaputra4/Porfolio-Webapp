@@ -66,7 +66,7 @@ export default class AuthHandler extends React.Component {
                 Password
               </label>
               <input
-                type="text"
+                type="password"
                 className="form-control"
                 id="login-password"
                 required
@@ -186,7 +186,7 @@ export default class AuthHandler extends React.Component {
                 Password
               </label>
               <input
-                type="text"
+                type="password"
                 className="form-control"
                 id="recipient-name"
                 required
