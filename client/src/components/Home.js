@@ -193,7 +193,7 @@ export default class Home extends Component {
               field. I enjoy watching good Movie, Tv shows, or even Korean Tv
               series, playing video games is also my hobbies. Since I really
               like watching movie, my current project at the moment is trying to
-              build an algorithm to predict user preference.
+              build an algorithm to predict user movie preference.
             </p>
           </div>
         </div>
