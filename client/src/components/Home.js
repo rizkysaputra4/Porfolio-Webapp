@@ -5,10 +5,9 @@ import svg from "./svg-sources";
 import { TimelineLite, Bounce } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { gsap } from "gsap";
+import { server } from "./Wall";
 
 gsap.registerPlugin(ScrollTrigger);
-
-const server = "https://rizkyport.herokuapp.com/api";
 
 export default class Home extends Component {
   constructor(props) {
@@ -29,12 +28,8 @@ export default class Home extends Component {
     axios
       .get(`${server}/checkLogin`)
       .then((res) => {
-        console.log(res.data);
         if (!res.data.login) {
-          console.log("generate token");
-          axios.post(`${server}/generateGuestToken`).then((res) => {
-            console.log(res.data);
-          });
+          axios.post(`${server}/generateGuestToken`).then((res) => {});
         }
       })
       .catch((err) => console.log(err));
@@ -61,7 +56,7 @@ export default class Home extends Component {
       },
       {
         duration: 1,
-        backgroundColor: "black",
+        backgroundColor: "#007bff",
         autoAlpha: 1,
         ease: "none",
         scrollTrigger: {
@@ -143,79 +138,13 @@ export default class Home extends Component {
     );
   }
 
-  fromLeftAnimations(el, index) {
-    gsap.fromTo(
-      el,
-      {
-        opacity: 0,
-        y: -200,
-      },
-      {
-        duration: 1.5,
-        y: 0,
-        autoAlpha: 1,
-        ease: "elastic.out(1, 0.3)",
-        scrollTrigger: {
-          id: `sectionright-${index}`,
-          trigger: el,
-          start: "center center+=200",
-          toggleActions: "play none none reverse",
-        },
-      }
-    );
-  }
-
-  fromBottomAnimation(el, index) {
-    gsap.fromTo(
-      el,
-      {
-        opacity: 0,
-        y: -100,
-      },
-      {
-        duration: 1,
-        y: 0,
-        autoAlpha: 1,
-        ease: "power3.out",
-        scrollTrigger: {
-          id: `sectionright-${index}`,
-          trigger: el,
-          start: "center center+=300",
-          toggleActions: "play none none reverse",
-        },
-      }
-    );
-  }
-
-  layerAnimation = (el, index) => {
-    gsap.fromTo(
-      el,
-      {
-        opacity: 0,
-      },
-      {
-        duration: 1,
-
-        autoAlpha: 1,
-
-        scrollTrigger: {
-          id: `sectionright-${index}`,
-          trigger: el,
-          start: "top top",
-          pin: true,
-          pinSpacing: false,
-        },
-      }
-    );
-  };
-
   render() {
     return (
       <div>
         <div id="Welcome-container">
           <div style={{ color: "white" }} id="welcome-content">
             <h3 id="hello" ref={(div) => (this.HelloText = div)}>
-              Hello
+              Hello,
             </h3>
             <div id="name">
               <div
@@ -252,17 +181,17 @@ export default class Home extends Component {
             </div>
             <br></br>
             <h6 className="mb-3 mt-4" align="center">
-              Hi, i am Rizky, nice to meet you!
+              Hi, I am Rizky, nice to meet you!
             </h6>
             <p className="">
               I am a Junior Developer, raised in a small town in Lampung
               Province, and currently living in Cikarang, Bekasi. Graduated from
               University of Lampung in Electrical Engineering in 2020, now I am
-              starting to looking for a career path in developer field. I
-              already have an interest with programming and tech stuff since 14
-              years old. Especially in Web development and Machine learning
+              starting to looking for a career path in software developer field.
+              I already have an interest with programming and tech stuff since
+              14 years old. Especially in Web development and Machine learning
               field. I enjoy watching good Movie, Tv shows, or even Korean Tv
-              series, playing video games is also my hobbies. Since i really
+              series, playing video games is also my hobbies. Since I really
               like watching movie, my current project at the moment is trying to
               build an algorithm to predict user preference.
             </p>
@@ -366,23 +295,6 @@ export default class Home extends Component {
             <h6 align="center">– (+62)82186326036 –</h6>
           </div>
         </div>
-
-        {/* <div
-          id="contact-container"
-          ref={(div) => this.changeBackground(div, 5)}
-        >
-          <div id="contacts">
-            <h6>My Contact</h6>
-            <ul className="">
-              <li ref={(li) => this.fromBottomAnimation(li, 0)}>
-                Email: rizkysaputra000@gmail.com
-              </li>
-              <li ref={(li) => this.fromBottomAnimation(li, 1)}>
-                Phone: 082186326036
-              </li>
-            </ul>
-          </div>
-        </div> */}
       </div>
     );
   }

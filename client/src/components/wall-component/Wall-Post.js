@@ -26,7 +26,7 @@ export default class Post extends React.Component {
     return (
       <>
         <div
-          className="col-md-auto p-0"
+          className="col-md-auto p-0 bigger-when-hover"
           type="button"
           data-toggle="collapse"
           data-target={`#id${this.props.posts._id}`}
@@ -90,7 +90,7 @@ export default class Post extends React.Component {
         {svg.options}
 
         <div
-          className="dropdown-menu dropdown-menu-right"
+          className="dropdown-menu dropdown-menu-right "
           aria-labelledby="dropdownMenuButton"
         >
           <EditPost
@@ -175,6 +175,7 @@ export default class Post extends React.Component {
                 height="140"
                 width="140"
                 className="mr-3"
+                id="post-img"
                 alt="..."
               />
               <div className="media-body">

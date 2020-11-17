@@ -35,7 +35,7 @@ export default class UpvoteDownvote extends React.Component {
           className="col w-auto d-flex justify-content-end"
           id="upvote-downvote"
         >
-          <div className="px-2">
+          <div className="px-2 bigger-when-hover">
             <svg
               type="button"
               onClick={() => this.upvote(this.props.post._id)}
@@ -50,7 +50,7 @@ export default class UpvoteDownvote extends React.Component {
           <div className="px-2" id="vote-result">
             {this.state.vote}
           </div>
-          <div className="px-2">
+          <div className="px-2 bigger-when-hover">
             <svg
               type="button"
               onClick={() => this.downvote(this.props.post._id)}

@@ -8,7 +8,7 @@ require("dotenv").config({ path: __dirname + "/.env" });
 const app = express();
 const port = process.env.PORT || 443;
 
-app.use(cors({ credentials: true, origin: "rizkyport.herokuapp.com" }));
+app.use(cors({ credentials: true, origin: "https:rizkyport.herokuapp.com" }));
 app.use(express.json());
 app.use(cookieParser());
 

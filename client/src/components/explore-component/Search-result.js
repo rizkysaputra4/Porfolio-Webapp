@@ -2,10 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default class SearchResults extends React.Component {
-  /* constructor(props) {
-    super(props);
-  } */
-
   displayResult = () => {
     const movie = this.props.movie;
     return (

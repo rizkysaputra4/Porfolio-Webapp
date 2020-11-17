@@ -7,38 +7,46 @@ export default class Explore extends Component {
   Hobbies = () => {
     return (
       <>
-        <div className="mx-5 mt-5">
+        <div className="mx-5 mt-5" id="hobbies-cont">
           <h3>Hobbies</h3>
           <hr></hr>
           <Container>
             <Row>
               <Col xs={6} md={4}>
                 <Link to={"/movies"}>
-                  <div className="icon">
+                  <div className="icon pb-3">
                     <img
                       src={require("../pic/movie.png")}
                       className="img-thumbnail"
                       alt="movie"
                     />
-                    <h5 className="bottom-left mb-0 ml-2">Movies</h5>
+                    <h5 className="bottom-left mb-3 ml-2 thumbnail">Movies</h5>
                   </div>
                 </Link>
               </Col>
               <Col xs={6} md={4}>
-                <img
-                  src={require("../pic/book.png")}
-                  className="img-thumbnail"
-                  alt="movie"
-                />
-                <h5 className="bottom-left mb-0 ml-2">Books (soon)</h5>
+                <div className="pb-3">
+                  <img
+                    src={require("../pic/book.png")}
+                    className="img-thumbnail"
+                    alt="movie"
+                  />
+                  <h5 className="bottom-left mb-3 ml-2 thumbnail">
+                    Books (soon)
+                  </h5>
+                </div>
               </Col>
               <Col xs={6} md={4}>
-                <img
-                  src={require("../pic/cook.png")}
-                  className="img-thumbnail"
-                  alt="movie"
-                />
-                <h5 className="bottom-left mb-0 ml-2">Cook Recipe (soon)</h5>
+                <div className="pb-3">
+                  <img
+                    src={require("../pic/cook.png")}
+                    className="img-thumbnail"
+                    alt="movie"
+                  />
+                  <h5 className="bottom-left mb-3 ml-2 thumbnail">
+                    Cook Recipe (soon)
+                  </h5>
+                </div>
               </Col>
             </Row>
           </Container>
@@ -129,7 +137,7 @@ export default class Explore extends Component {
 
   render() {
     return (
-      <div className="full-screen">
+      <div className="explore">
         <this.Hobbies />
 
         <div></div>

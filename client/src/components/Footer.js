@@ -25,7 +25,7 @@ export default class Footer extends React.Component {
 
   Footer = () => {
     return (
-      <footer className="footer-container pt-5 pb-5" id="footer-container">
+      <footer className="footer-container pt-3 pb-3" id="footer-container">
         <div className="container d-flex justify-content-center pt-3 pb-3">
           {this.contactLink()}
         </div>

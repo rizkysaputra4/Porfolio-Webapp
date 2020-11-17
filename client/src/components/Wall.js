@@ -11,8 +11,9 @@ import { gsap } from "gsap";
 import { ToastContainer } from "react-toastify";
 
 gsap.registerPlugin(ScrollTrigger);
+gsap.config({ nullTargetWarn: false });
 
-const server = "https://rizkyport.herokuapp.com/api";
+export const server = "https://rizkyport.herokuapp.com/api";
 
 export default class Wall extends React.Component {
   constructor(props) {
@@ -62,14 +63,6 @@ export default class Wall extends React.Component {
       })
       .catch((err) => console.log(err));
   }
-
-  /*  shouldComponentUpdate(nextProps, nextState) {
-    if (this.state.postList === nextState.postList) {
-      return false;
-    } else {
-      return true;
-    }
-  } */
 
   componentDidUpdate() {
     this.revealRefs.forEach((el, index) => {
@@ -246,7 +239,7 @@ export default class Wall extends React.Component {
     return (
       <div className="container-box mb-5">
         <div className="left-box" id="left-box">
-          <p>ssfdd</p>
+          <p></p>
         </div>
         <div className="border content-box" id="content-box">
           <ToastContainer
@@ -267,22 +260,13 @@ export default class Wall extends React.Component {
             id="myTab"
             role="tablist"
           >
-            {/* <li className="nav-item" role="presentation">
+            <li
+              className="nav-item col mx-0 px-0"
+              role="presentation"
+              align="center"
+            >
               <a
-                className="nav-link"
-                id="home-tab"
-                data-toggle="tab"
-                href="#add-post"
-                role="tab"
-                aria-controls="home"
-                aria-selected="true"
-              >
-                Send Post
-              </a>
-            </li> */}
-            <li className="nav-item col" role="presentation" align="center">
-              <a
-                className="nav-link active"
+                className="nav-link active "
                 id="profile-tab"
                 data-toggle="tab"
                 href="#wall"
@@ -293,7 +277,11 @@ export default class Wall extends React.Component {
                 Wall
               </a>
             </li>
-            <li className="nav-item col" role="presentation" align="center">
+            <li
+              className="nav-item col mx-0 px-0"
+              role="presentation"
+              align="center"
+            >
               <a
                 className="nav-link"
                 id="contact-tab"

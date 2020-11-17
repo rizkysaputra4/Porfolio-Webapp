@@ -3,8 +3,7 @@ import axios from "axios";
 import Movie from "./Movie";
 import SearchMovie from "./Search-movie";
 import ReactLoading from "react-loading";
-
-const server = "https://rizkyport.herokuapp.com/api";
+import { server } from "../Wall";
 
 export default class DisplayMovies extends React.Component {
   constructor(props) {

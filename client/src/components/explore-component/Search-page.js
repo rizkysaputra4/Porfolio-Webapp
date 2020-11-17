@@ -4,8 +4,8 @@ import axios from "axios";
 import SearchMovie from "./Search-movie";
 import { Link } from "react-router-dom";
 import ReactLoading from "react-loading";
+import { server } from "../Wall";
 
-const server = "https://rizkyport.herokuapp.com/api";
 export default class SearchPage extends React.Component {
   constructor(props) {
     super(props);

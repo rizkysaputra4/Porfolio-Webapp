@@ -2,10 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default class Movie extends React.Component {
-  /* constructor(props) {
-    super(props);
-  } */
-
   movieCards = () => {
     const movie = this.props.movie;
     return (

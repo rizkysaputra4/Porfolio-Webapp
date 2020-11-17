@@ -45,3 +45,57 @@ hr {
 #movie-link:hover {
   text-decoration: none;
 }
+
+.key-movie {
+  width: 15% !important;
+}
+
+.dot-movie {
+  width: 5% !important;
+}
+
+.val-movie {
+  width: 80% !important;
+}
+
+.explore {
+  min-height: 378px !important;
+}
+
+@media (max-width: 720px) {
+  #movie-detail {
+    width: 95% !important;
+  }
+
+  .key-movie {
+    width: 20% !important;
+  }
+
+  .dot-movie {
+    width: 5% !important;
+  }
+
+  .val-movie {
+    width: 75% !important;
+  }
+
+  .img-thumbnail {
+    height: 150px;
+    width: 150px;
+  }
+
+  .thumbnail {
+    font-size: 15px !important;
+  }
+
+  .explore {
+    height: 100vh !important;
+    width: 100%;
+  }
+
+  #hobbies-cont {
+    width: 95%;
+    margin: 20px auto 10px auto !important;
+    padding: 0 !important;
+  }
+}

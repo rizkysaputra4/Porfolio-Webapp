@@ -1,10 +1,9 @@
 import React from "react";
 import axios from "axios";
 import SearchMovie from "./Search-movie";
-import "./movie-details.css";
+import "../style/movie-details.css";
 import ReactLoading from "react-loading";
-
-const server = "https://rizkyport.herokuapp.com/api";
+import { server } from "../Wall";
 
 export default class MovieDetails extends React.Component {
   constructor(props) {
@@ -21,7 +20,6 @@ export default class MovieDetails extends React.Component {
       .get(`${server}/getmovie/${this.props.match.params.imdbID}`)
       .then((res) => {
         this.setState({ movie: res.data, isLoading: false });
-        console.log(res.data);
       })
       .catch((err) => console.log(err));
 
@@ -62,10 +60,12 @@ export default class MovieDetails extends React.Component {
 
     return information.map((info, index) => {
       return (
-        <div className="row" key={index}>
-          <div className="col-2 key-movie">{keys[index]}</div>
-          <div className="col-md-auto pl-1 pr-0">:</div>
-          <div className="col">{info}</div>
+        <div className=" d-flex" key={index}>
+          <div className=" key-movie" id="daf">
+            {keys[index]}
+          </div>
+          <div className=" pl-1 pr-0 dot-movie">:</div>
+          <div className=" val-movie">{info}</div>
         </div>
       );
     });
@@ -74,7 +74,10 @@ export default class MovieDetails extends React.Component {
   displayDetails = () => {
     const movie = this.state.movie;
     return (
-      <div className="container w-75 movie-container mt-0 p-4">
+      <div
+        className="container w-75 movie-container mt-0 p-4"
+        id="movie-detail"
+      >
         <h3>
           {movie.Title} ({movie.Year})
         </h3>
@@ -84,34 +87,28 @@ export default class MovieDetails extends React.Component {
           Language: {movie.Language}
         </p>
         <div className="row">
-          <div className="col-md-auto">
+          <div className="col-md-auto d-flex justify-content-center mb-2">
             <img
               src={movie.Poster}
               height="300"
               width="220"
               alt={movie.Title}
+              align="center"
             />
           </div>
-          <div className="col pl-0">
-            <div className="container-fluid pl-0">
-              {this.movieInfo()}
-              <div className="row">
-                <div className="col-2 key-movie">Rating</div>
-                <div className="col-md-auto pl-1 pr-0">:</div>
-                <div className="col">
-                  {movie.imdbRating}/10 From {movie.imdbVotes} Votes
-                </div>
+          <div className="col">
+            {this.movieInfo()}
+            <div className="d-flex">
+              <div className="key-movie">Rating</div>
+              <div className="pl-1 pr-0 dot-movie">:</div>
+              <div className="val-movie">
+                {movie.imdbRating}/10 From {movie.imdbVotes} Votes
               </div>
             </div>
           </div>
         </div>
 
         <p className="mt-3 text-justify">{movie.Plot}</p>
-
-        {/* <div className="">
-          <h6>Rating: </h6>
-          <div>{this.ratings()}</div>
-        </div> */}
         <p className="text-left">Awards: {movie.Awards}</p>
       </div>
     );
