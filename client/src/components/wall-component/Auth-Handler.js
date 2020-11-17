@@ -352,7 +352,7 @@ export default class AuthHandler extends React.Component {
       .then((res) => console.log("logged out"))
       .catch((err) => console.log(err));
 
-    window.location = "/wall";
+    window.location.reload();
   };
 
   logOutButton() {

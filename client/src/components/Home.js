@@ -201,7 +201,6 @@ export default class Home extends Component {
         <div
           className="d-flex align-items-center justify-content-center"
           id="skill-box"
-          ref={(div) => this.changeBackground(div, 3)}
         >
           <div>
             <h4 className="mb-5" style={{ color: "white" }} align="center">
@@ -282,7 +281,7 @@ export default class Home extends Component {
               Click this{" "}
               <a
                 target="_blank"
-                href="https://drive.google.com/file/d/12yHWXSegaYidHD9w1I_9Oe_nWdpi_iOx/view?usp=sharing"
+                href="https://drive.google.com/file/d/1AjB2dNMfNwr8y230WR9l-WyvefKhdT5q/view?usp=sharing"
                 rel="noopener noreferrer"
               >
                 link

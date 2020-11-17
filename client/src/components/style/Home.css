@@ -80,7 +80,7 @@ pre {
 
 #skill-box {
   height: 110vh;
-  background-color: #f4faff;
+  background-color: #007bff;
   min-height: 800px;
 }
 
@@ -152,7 +152,7 @@ h4 {
 @media (max-width: 720px) {
   #profile-container,
   #contact-div {
-    width: 95% !important;
+    width: 90% !important;
   }
 
   #welcome-content {
