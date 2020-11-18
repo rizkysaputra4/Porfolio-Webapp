@@ -4,7 +4,6 @@ import "./components/style/NavBar.css";
 import "./components/style/Wall.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap";
-import "axios";
 
 import Navbar from "./components/NavBar";
 import Footer from "./components/Footer";
